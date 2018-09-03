@@ -1,0 +1,10 @@
+Add connection to dataSource - din SQL
+
+in sectiunea server explorer, faci legatura cu DB-ul tau initial si dupa iti creezi un proiect un DataSource
+
+- adaugam clasa noastra DataSetSource
+- Pentru connection String cu baza de date: Te duci in Properties pe proiect, dupa Settings - iti faci acolo o propierate(Name), 
+mai departe ii zici ca e de Type (ConnectionString) scopul (Scope) trebuie sa fie Applicaton si dupa in Value iti faci tot asa conexiunea cum
+ai facut la Server Explorer - > dupa intri in proiectul tau unde ai nevoie de connection string si treci ca proprietate:
+this.Settings.ConnectionString
+
