@@ -93,6 +93,7 @@
             // 
             // CategoryToolStripComboBox
             // 
+            this.CategoryToolStripComboBox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.CategoryToolStripComboBox.Name = "CategoryToolStripComboBox";
             this.CategoryToolStripComboBox.Size = new System.Drawing.Size(121, 25);
             this.CategoryToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryToolStripComboBox_SelectedIndexChanged);
@@ -114,7 +115,8 @@
             "Objects"});
             this.SourceToolStripComboBox.Items.AddRange(new object[] {
             "Object",
-            "DataSet"});
+            "DataSet",
+            "Linq to SQL"});
             this.SourceToolStripComboBox.Name = "SourceToolStripComboBox";
             this.SourceToolStripComboBox.Size = new System.Drawing.Size(121, 25);
             this.SourceToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.SourceToolStripComboBox_SelectedIndexChanged);
@@ -330,6 +332,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DataForm";
             this.Text = "Data Binding";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DataForm_FormClosing);
             this.Load += new System.EventHandler(this.DataForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

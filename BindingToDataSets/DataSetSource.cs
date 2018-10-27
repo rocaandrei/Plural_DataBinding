@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace BindingToDataSets
 {
+    //facem conexiunea cu un DataSet din SQL - ne legam la anumite tabele din SQL si le manipulam in Windows Form
     public class DataSetSource : ISource
     {
         DataSet _dataSet;//= ne creeaza tiparul nostru, un sablon pentru a stoca datele in tabelul SQL
         SqlDataAdapter _productsDataAdapter;
-        public DataSetSource()//in constructor creem si populam _dataSet
+        public DataSetSource()//in constructor creem si populam _dataSet cu tabelele din SQL
         {
             _dataSet = new DataSet();//aici vor fi stocate datele noastre 
 
@@ -84,7 +85,7 @@ namespace BindingToDataSets
                 var productRow = querryProducts.Single();
                 //     bidingSource.Remove(productRow);
                 productRow.Delete();
-               // Save();//am pus asta aici sa-mi salveze dupa delete ca altfel imi da o eroare dupa ce sterg un obiect si incerc sa mai sterg unul[Additional information: Deleted row information cannot be accessed through the row.]
+               // Save();//am pus asta aici sa-mi salveze dupa delete ca altfel imi da o eroare dupa ce sterg un obiect si incerc sa mai sterg unul[Additional information: Deleted row information cannot be accessed through the row.] - daca folosesc using imi salveaza automat 
             }
         }
 
@@ -92,7 +93,7 @@ namespace BindingToDataSets
         {
             using (SqlConnection connectionDataSet = new SqlConnection(Settings.Default.NorthwindConnection))
             {
-                SqlDataAdapter _productsDataAdapter = new SqlDataAdapter("SELECT * FROM Product ", connectionDataSet);
+                 _productsDataAdapter = new SqlDataAdapter("SELECT * FROM Product ", connectionDataSet);
                 var builder = new SqlCommandBuilder(_productsDataAdapter);//ASTA IMI VA FACE INSERTURILE DE SAVE SAU DELETE BAZAT PE selectul de sus 
                 _productsDataAdapter.Update(_dataSet, "Product");
             }

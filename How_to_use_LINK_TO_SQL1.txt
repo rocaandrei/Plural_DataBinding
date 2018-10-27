@@ -1,0 +1,15 @@
+tot asa din server explorer ne facem conexiunea cu baza de date dupa care adaugam un item nou proiectului din Data si selectezi LINQ to SQL classes
+Important! pentru a nu exista un conflict intre clasele mele deja existente de Category si Product, punem in fata claselor ce voor fi generate automat de LINQ, un cuvant in fata - le redenumim
+-dupa dam save si avem genetate clasele 
+- > pentru a le adauga proiectului mai departe adaugam o clasa noua 
+
+o sa vezi ca atunci cand rulezi si o sa vrei sa modifici anumite detalii din produs, nu vei reusi si atunci trebuie sa faci corectia in data binding, la ultima proprietate cea de-a 4 a: 
+ex: 
+
+   NameTextBox.DataBindings.Add("Text", _productBindingSource, "ProductName",true);
+		- trebuie sa adaugi si ultima proprietate bool = formattingEnabled, la toate proprietatile ce este posibil sa le formatezi pe parcus 
+
+NOTA! - cand ne facem metoda AddProducts, din LINQ to SQL
+nu avem metoda deja deinita din binding source de add si folosim InsertOnSubmitiar ca parametru obiectul de tip LinqProduct:
+ex: 
+  _context.LinqProducts.InsertOnSubmit(linqProd);

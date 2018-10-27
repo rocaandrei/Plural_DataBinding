@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF3E666F-490C-48EB-B687-49550C1EB508}"
 	ProjectSection(SolutionItems) = preProject
 		How_to_Add_dataSource.txt = How_to_Add_dataSource.txt
+		How_to_use_LINK_TO_SQL1.txt = How_to_use_LINK_TO_SQL1.txt
 	EndProjectSection
 EndProject
 Global

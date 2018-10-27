@@ -23,6 +23,7 @@ namespace DataBindingExample
         ISource _currentSource;// pentru ca avem trei tipuri de date returnate: Object, DataSet si Linq to SQL, prop asta va puncta catre tipul curent selectat de noi 
         ObjectSource _objectSource;
         DataSetSource _dataSetSource;
+        LinqSource _linqToSQLSource;
 
         private void DataForm_Load(object sender, EventArgs e)
         {
@@ -41,11 +42,11 @@ namespace DataBindingExample
             ProductsListBox.ValueMember = "ProductID";
             ProductsListBox.DataSource = _productBindingSource;
 
-            NameTextBox.DataBindings.Add("Text", _productBindingSource, "ProductName");
-            QuantitiyPerUnitTextBox.DataBindings.Add("Text", _productBindingSource, "QuantityPerUnit");
-            PriceTextBox.DataBindings.Add("Text", _productBindingSource, "UnitPrice");
-            StockTextBox.DataBindings.Add("Text", _productBindingSource, "UnitsInStock");
-            UnitsInOrderTextBox.DataBindings.Add("Text", _productBindingSource, "UnitsOnOrder");
+            NameTextBox.DataBindings.Add("Text", _productBindingSource, "ProductName",true);
+            QuantitiyPerUnitTextBox.DataBindings.Add("Text", _productBindingSource, "QuantityPerUnit",true);
+            PriceTextBox.DataBindings.Add("Text", _productBindingSource, "UnitPrice", true);
+            StockTextBox.DataBindings.Add("Text", _productBindingSource, "UnitsInStock", true);
+            UnitsInOrderTextBox.DataBindings.Add("Text", _productBindingSource, "UnitsOnOrder", true);
             //DiscontinuedCheckBox.DataBindings.Add("Checked", _productBindingSource, "Discontinued"); Comentez asta ca imi da eroare cu DataBingind-ul cand ia din baza de date Discontinued asta il ia ca Bit si nu stiu sa-i fac conversia
 
         }
@@ -63,12 +64,12 @@ namespace DataBindingExample
 
         private void BindProducts()
         {
-            var categoryID = CategoryToolStripComboBox.ComboBox.SelectedValue;//aflam categoria selectata
+            var categoryID = CategoryToolStripComboBox.ComboBox.SelectedValue;//aflam categoria selectata, valoarea ei
+           
             if (CategoryToolStripComboBox.ComboBox.SelectedValue == null)
             {
-                categoryID = 5;//am nevoie de linia asta ca vad ca imi da eroare la prima complilare, ca nu stie ce categorie e initiala, ca e nula
+                categoryID = 1;//am nevoie de linia asta ca vad ca imi da eroare la prima complilare, ca nu stie ce categorie e initiala, ca e nula
             }
-
             _productBindingSource.DataSource = _currentSource.GetProducts((int)categoryID);
         }
         private void BindCategories()
@@ -93,6 +94,13 @@ namespace DataBindingExample
                         _dataSetSource = new DataSetSource();
                     }
                     _currentSource = _dataSetSource;
+                    break;
+                case 2://Linq to SQL
+                    if (_linqToSQLSource == null)
+                    {
+                        _linqToSQLSource = new LinqSource();
+                    }
+                    _currentSource = _linqToSQLSource;
                     break;
             }
         }
@@ -133,6 +141,23 @@ namespace DataBindingExample
         private void SaveToolStripButton_Click(object sender, EventArgs e)
         {
             _currentSource.Save();
+        }
+        //sa ne intrebe cand dam pe X daca vrem sa salvam//TO DO: mai am de lucrat pentru ca te intreaba de doua ori... ideea e ca iti mai trimit odata eventul de inchidere si ala trebuie cumva anulat 
+        private void DataForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogInfo = MessageBox.Show("Do you want to save the file before closing?", "Save", MessageBoxButtons.YesNo);
+            if (dialogInfo == DialogResult.Yes)
+            {
+                _currentSource.Save();
+
+                e.Cancel = false;
+                Application.Exit();
+            }
+            else if (dialogInfo == DialogResult.No)
+            {
+                e.Cancel = false;
+                Application.Exit();
+            }
         }
     }
 }
