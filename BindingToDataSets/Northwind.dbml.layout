@@ -8,10 +8,10 @@
         <elementListCompartment Id="c3b524d1-da45-4007-b590-925c01c0c937" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0a04c596-355f-434c-b3ca-83ae98bdeaa0" absoluteBounds="2.75, 0.5, 2, 2.3478011067708335">
+    <classShape Id="0a04c596-355f-434c-b3ca-83ae98bdeaa0" absoluteBounds="3, 0.625, 2, 2.3478011067708335">
       <DataClassMoniker Name="/NorthwindDataContext/LinqProduct" />
       <nestedChildShapes>
-        <elementListCompartment Id="e473a4ec-7217-45aa-af52-c9eff3653e2f" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e473a4ec-7217-45aa-af52-c9eff3653e2f" absoluteBounds="3.0149999999999997, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -49,6 +49,7 @@ namespace BindingToDataSets
 
         public void AddProduct(BindingSource bidingSource, Product product)
         {
+            Save();
             DataTable productsTable = _dataSet.Tables["Product"];
             DataRow row = productsTable.NewRow();
             int _nextId = productsTable.Rows.Count + 2;

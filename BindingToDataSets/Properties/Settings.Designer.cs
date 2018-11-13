@@ -26,8 +26,8 @@ namespace BindingToDataSets.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-49D4LU2J\\ANDREISQL;Initial Catalog=NorthwindPlural;Integrated " +
-            "Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-G22DBJE\\MYSQLDB_AR;Initial Catalog=NorthwindPluralDB;Integrat" +
+            "ed Security=True")]
         public string NorthwindConnection {
             get {
                 return ((string)(this["NorthwindConnection"]));

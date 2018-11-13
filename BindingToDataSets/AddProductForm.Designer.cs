@@ -1,4 +1,6 @@
-﻿namespace BindingToDataSets
+﻿using System.Windows.Forms;
+
+namespace BindingToDataSets
 {
     partial class AddProductForm
     {
@@ -31,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProductForm));
             this.label7 = new System.Windows.Forms.Label();
             this.CategoryTextBoxAddProduct = new System.Windows.Forms.TextBox();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelButton1 = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.QuantitiyPerUnitTextBoxAddProduct = new System.Windows.Forms.TextBox();
@@ -65,13 +67,13 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(135, 183);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(127, 23);
-            this.CancelButton.TabIndex = 38;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelButton1.Location = new System.Drawing.Point(135, 183);
+            this.CancelButton1.Name = "CancelButton";
+            this.CancelButton1.Size = new System.Drawing.Size(127, 23);
+            this.CancelButton1.TabIndex = 38;
+            this.CancelButton1.Text = "Cancel";
+            this.CancelButton1.UseVisualStyleBackColor = true;
+            this.CancelButton1.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AddButton
             // 
@@ -171,7 +173,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.label7);
             this.Controls.Add(this.CategoryTextBoxAddProduct);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelButton1);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.QuantitiyPerUnitTextBoxAddProduct);
@@ -208,5 +210,18 @@
         private System.Windows.Forms.TextBox StockTextBoxAddProduct;
         private System.Windows.Forms.TextBox PriceTextBoxAddProduct;
         private System.Windows.Forms.TextBox NameTextBoxAddProduct;
+
+        public Button CancelButton1
+        {
+            get
+            {
+                return CancelButton;
+            }
+
+            set
+            {
+                CancelButton = value;
+            }
+        }
     }
 }
